@@ -1,0 +1,68 @@
+<div class="row">
+	<div class="container" id="matchContent">
+		<h3>Check Statistics</h3>
+		
+		<!-- Input field to enter the name -->
+		<div class="row justify-content-md-center">
+			<div class="col col-md-6">
+			  	<div class="input-group">
+		  	      <span class="input-group-btn">
+		  	        <span class="input-group-addon bg-warning">Team Name</span>
+		  	      </span>
+		  	      <input type="text" class="form-control" ng-model="teamName" placeholder="Enter Team Name" aria-label="Team Name">
+			  	 </div>
+			</div>
+		</div>
+
+		<!-- Button to select the year -->
+		<div class="container" id="matchContent">
+			<div class="row justify-content-md-center">
+				<div class="col col-md-4" ng-if="teamName">		
+					<button type="button" ng-click="match.showMatchesOne(teamName)" class="btn btn-outline-dark btn-block" role="button" aria-pressed="true">(2015-2016)</button>	
+				</div>
+
+				<div class="col col-md-4" ng-if="teamName">		
+					<button type="button" ng-click="match.showMatchesTwo(teamName)" class="btn btn-outline-dark btn-block" role="button" aria-pressed="true">(2016-2017)</button>					
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-md-center" ng-if="match.displayStats" ng-show="teamName">
+			<div class="col-md-6">
+				
+				<div class="row" id="matchContent">
+					<div class="col-md-6"><h5>Matches Played</h5></div>
+					<div class="col-md-6"><h5>{{match.matchesPlayed}}</h5></div>
+				</div>
+
+				<div class="row" id="matchContent">
+					<div class="col-md-6"><h5>Goals Scored</h5></div>
+					<div class="col-md-6"><h5>{{match.goalsScore}}</h5></div>
+				</div>
+				
+				<div class="row" id="matchContent">
+					<div class="col-md-6"><h5>Matches Won</h5></div>
+					<div class="col-md-6"><h5>{{match.matchesWon}}</h5></div>
+				</div>
+
+				<div class="row" id="matchContent">
+					<div class="col-md-6"><h5>Matches Lost</h5></div>
+					<div class="col-md-6"><h5>{{match.matchesLost}}</h5></div>
+				</div>
+
+				<div class="row" id="matchContent">
+					<div class="col-md-6"><h5>Matches Drawn</h5></div>
+					<div class="col-md-6"><h5>{{match.matchesDrawn}}</h5></div>
+				</div>
+					 
+			</div>
+		</div>
+
+		<div class="row justify-content-md-center" ng-if="match.teamNotFound">
+			<div class="col-md-6">
+				<h4>Team not found</h4>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,80 @@
+<div class="row">
+
+	<!-- Option to switch between the match years -->
+	<div class="container" id="matchContent">
+		<h3>All Matches</h3>
+		
+		<!-- Select single match type --> 
+		<div class="row justify-content-md-center">
+			<div class="col col-md-4">		
+				<button type="button" ng-click="match.showMatchesOne()" class="btn btn-outline-dark btn-block" role="button" aria-pressed="true">Matches(2015-2016)</button>	
+			</div>
+
+			<div class="col col-md-4">		
+				<button type="button" ng-click="match.showMatchesTwo()" class="btn btn-outline-dark btn-block" role="button" aria-pressed="true">Matches(2016-2017)</button>					
+			</div>
+		</div>
+	</div>
+
+	<!-- Show all the matches -->
+	<div class="container" id="matchContent">
+		<h3>{{match.matchDetails.name}}</h3>
+
+		<!-- Search for anything, using two-way data binding --> 
+		<div class="row justify-content-md-center">
+			<div class="col-md-4">		
+				<div class="input-group">
+					<span class="input-group-addon bg-warning" id="basic-addon1">Search</span>
+					<input type="text" class="form-control" placeholder="Matches, Date, Teams, Code..." aria-label="Username" aria-describedby="basic-addon1" ng-model="search">
+				</div>
+			</div>
+
+			<div class="col-md-3">		
+				<div class="input-group">
+					<span class="input-group-addon bg-warning" id="basic-addon1">Team 1</span>
+					<input type="text" id="team1" class="form-control" placeholder="Eg..Manchester" aria-describedby="basic-addon1" ng-model="team1">
+				</div>
+			</div>
+
+			<div class="col-md-1">
+				<h5>vs</h5>
+			</div>
+
+			<div class="col-md-3">		
+				<div class="input-group">
+					<span class="input-group-addon bg-warning" id="basic-addon1">Team 2</span>
+					<input type="text" class="form-control" placeholder="Eg..Arsenal" aria-describedby="basic-addon1" ng-model="team2">
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-md-center" ng-repeat="title in match.matchDetails.rounds">
+			<h4>{{title.name}}</h4>
+			<table class="table table-responsive table-striped table-inverse">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>First Team</th>
+						<th>Code</th>
+						<th>Score</th>
+						<th>Second Team</th>
+						<th>Code</th>
+						<th>Score</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="teams in title.matches | filter:search | filter:team1 | filter:team2">
+						<td>{{teams.date}}</td>
+						<td>{{teams.team1.name}}</td>
+						<td>{{teams.team1.code}}</td>
+						<td>{{teams.score1}}</td>
+						<td>{{teams.team2.name}}</td>
+						<td>{{teams.team2.code}}</td>
+						<td>{{teams.score2}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+h3,h4{
+	text-align: center;
+	margin: 2% 0%;
+}
+
+.btn{
+	margin-bottom: 2%;
+}
+
+.input-group{
+	margin-bottom: 3%;
+}
+
+#showAllMatches{
+	background-color: #fafafa;
+}
+
+#matchContent{
+	margin: 1% 0%;
+	text-align: center;
+}
+
+#singleMatch{
+	padding: 2%;
+}
+
+#backGround{
+	background-image: url(../images/beckham.jpg);
+	height: 90vh;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top center; 
+	background-size: cover;
+}
+
