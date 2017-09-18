@@ -8,6 +8,10 @@ h3,h4{
 	margin: 2% 0%;
 }
 
+thead, tbody, th, td{
+	text-align: center;
+}
+
 .btn{
 	margin-bottom: 2%;
 }
