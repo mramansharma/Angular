@@ -16,6 +16,8 @@ myApp.controller('matchController',['$http',function($http){
 	this.matchesWon;
 	this.matchesLost;
 	this.matchesDrawn;
+	this.wonPercentage;
+	this.lossPercentage;
 	this.displayStats;
 	this.teamNotFound;
 
@@ -139,6 +141,8 @@ myApp.controller('matchController',['$http',function($http){
 					main.matchesWon=matchesWon;
 					main.matchesLost=matchesLost;
 					main.matchesDrawn=matchesDrawn;
+					main.wonPercentage=((matchesWon/countMatches)*100);
+					main.lossPercentage=((matchesLost/countMatches)*100);
 					main.displayStats=true;
 					main.teamNotFound=false;
 				}

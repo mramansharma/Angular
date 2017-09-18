@@ -46,8 +46,18 @@
 				</div>
 
 				<div class="row" id="matchContent">
+					<div class="col-md-6"><h5>Won Percentage (%)</h5></div>
+					<div class="col-md-6"><h5>{{match.wonPercentage | number:1}}</h5></div>
+				</div>
+
+				<div class="row" id="matchContent">
 					<div class="col-md-6"><h5>Matches Lost</h5></div>
 					<div class="col-md-6"><h5>{{match.matchesLost}}</h5></div>
+				</div>
+
+				<div class="row" id="matchContent">
+					<div class="col-md-6"><h5>Loss Percentage (%)</h5></div>
+					<div class="col-md-6"><h5>{{match.lossPercentage | number:1}}</h5></div>
 				</div>
 
 				<div class="row" id="matchContent">
