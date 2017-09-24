@@ -48,6 +48,7 @@
 	</div>
 
 	<div class="row justify-content-md-center" ng-repeat="title in match.matchDetails.rounds | filter:search">
+		<!-- The table data representation to display all the data -->
 		<h4>{{title.name}}</h4>
 		<table class="table table-responsive table-striped table-inverse">
 			<thead>
@@ -74,5 +75,6 @@
 				</tr>
 			</tbody>
 		</table>
+
 	</div>
 </div>

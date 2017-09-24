@@ -1,8 +1,5 @@
-// Creating a Module named footballClub and adding routing dependencies
-var myApp=angular.module('footballClub',['ngRoute']);
-
 // Creating a Controller named 'matchController' and requesting for data using $http service
-myApp.controller('matchController',['$http',function($http){
+myApp.controller('matchController',['$http','matchService',function($http,matchService){
 
 	// Variable to differentiate and store the scope
 	var main=this;
@@ -13,7 +10,7 @@ myApp.controller('matchController',['$http',function($http){
 	// Variable to stored results for the statistics
 	this.matchesPlayed;
 	this.goalsScore;
-	this.matchesWon;
+	this.matchesWon; 
 	this.matchesLost;
 	this.matchesDrawn;
 	this.wonPercentage;
@@ -21,16 +18,10 @@ myApp.controller('matchController',['$http',function($http){
 	this.displayStats;
 	this.teamNotFound;
 
-	// URL to call the rest API to fetch the information from the server	
-	this.urlOne="https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.json";
-	this.urlTwo="https://raw.githubusercontent.com/openfootball/football.json/master/2016-17/en.1.json";
-
 	// Function to asynchrounsly call to get the resoponse from the api
 	this.showMatchesOne = function(teamName){
-		$http({
-			method:'get',
-			url: main.urlOne,
-		}).then(function successCallback(response){
+		matchService.getAllMatchesOne()
+		.then(function successCallback(response){
 			// Response after success of data
 			main.matchDetails=response.data;
 			main.rounds=main.matchDetails.rounds;
@@ -51,10 +42,9 @@ myApp.controller('matchController',['$http',function($http){
 
 	// Function to asynchrounsly call to get the resoponse from the api
 	this.showMatchesTwo = function(teamName){
-		$http({
-			method:'get',
-			url: main.urlTwo,
-		}).then(function successCallback(response){
+		
+		matchService.getAllMatchesTwo()
+		.then(function successCallback(response){
 			// Response after success of data
 			main.matchDetails=response.data;
 			main.rounds=main.matchDetails.rounds;
